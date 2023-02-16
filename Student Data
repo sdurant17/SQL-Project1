@@ -1,0 +1,42 @@
+CREATE TABLE students( 
+ID INTEGER PRIMARY KEY 
+, first_name TEXT
+, last_name TEXT
+, age INTEGER
+, birth_year INTEGER
+, credits INTEGER
+, classification TEXT);
+
+INSERT INTO students VALUES (1, "Thomas", "Brown", 19,2003, 8, "Freshman" );
+INSERT INTO students VALUES (2, "Katlyn", "Roy", 21, 2001, 120,  "Senior");
+INSERT INTO students VALUES (3, "Bella", "Jones", 18, 2004,100, "Junior");
+INSERT INTO students VALUES (4, "Jennie", "Wilson", 23, 2000,115, "Senior");
+INSERT INTO students VALUES (5, "Clark", "Lopez", 19, 2003,35, "Sophomore");
+INSERT INTO students VALUES (6, "Taylor", "Brown", 19, 2002,103, "Junior");
+INSERT INTO students VALUES (7, "Amber", "Johnson", 21, 2001,45, "Sophomore");
+INSERT INTO students VALUES (8, "Clare", "Mcjohnson", 24, 1998,55, "Sophomore");
+INSERT INTO students VALUES (9, "Jessica", "Lopez", 31, 1991,12, "Graduate");
+
+
+SELECT * FROM students 
+WHERE age <21 
+ORDER BY age;
+
+SELECT classification, COUNT(age) FROM students GROUP BY classification;
+
+SELECT classification, MAX(age) FROM students GROUP BY classification;
+
+SELECT classification, MIN(age) FROM students GROUP BY classification;
+
+SELECT * FROM students
+WHERE credits <100
+ORDER BY classification; 
+
+SELECT first_name, classification, credits
+FROM students
+WHERE credits >=100;
+
+SELECT first_name, classification, MIN(age)
+FROM students
+GROUP BY classification
+HAVING age <=21;
